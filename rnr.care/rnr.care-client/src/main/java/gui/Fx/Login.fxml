@@ -35,7 +35,7 @@
                      <children>
                         <TextField fx:id="authUser" prefHeight="38.0" prefWidth="228.0" promptText="Username" GridPane.columnIndex="1" />
                         <PasswordField fx:id="authPsswd" prefHeight="38.0" prefWidth="228.0" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Button fx:id="login" mnemonicParsing="false" prefHeight="36.0" prefWidth="109.0" stylesheets="@../utils/style.css" text="Log in" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="login" mnemonicParsing="false" onAction="#LoginAction" prefHeight="36.0" prefWidth="109.0" stylesheets="@../utils/style.css" text="Log in" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Text fill="#15598f" layoutX="10.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" GridPane.rowIndex="1">
                            <font>
                               <Font size="25.0" />

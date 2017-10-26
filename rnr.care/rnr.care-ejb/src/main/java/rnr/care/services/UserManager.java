@@ -125,7 +125,14 @@ public class UserManager implements UserManagerRemote, UserManagerLocal {
 	public User findbylogin(String userName, String password) {
 		Query query = entityManager.createQuery("select e from User e where e.userName=:l and e.password=:p");
 		query.setParameter("l", userName).setParameter("p", password);
+		
 		return (User) query.getSingleResult();
 	}
+	
+	
+	
+	
+
+	    
 
 }
