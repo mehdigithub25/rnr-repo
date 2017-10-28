@@ -49,6 +49,18 @@ public class AssociationAgent extends Partner implements Serializable {
 		this.activity = activity;
 		this.associationName = associationName;
 	}
+	public AssociationAgent(String firstName, String lastName, String userName, String password, String email,
+			String address, int numPhone, String activity, String associationName) {
+		super(firstName, lastName, userName, password, email, address, numPhone);
+		this.activity = activity;
+		this.associationName = associationName;
+	}
+	public AssociationAgent(int idUser, String firstName, String lastName, String userName, String password,
+			String email, String address, int numPhone, String activity, String associationName) {
+		super(idUser, firstName, lastName, userName, password, email, address, numPhone);
+		this.activity = activity;
+		this.associationName = associationName;
+	}
 
    
 }

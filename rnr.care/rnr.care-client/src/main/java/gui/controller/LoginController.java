@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import rnr.care.services.UserConnectRemote;
@@ -23,6 +24,8 @@ public class LoginController implements Initializable {
 
 	@FXML
 	Label welcomeLabel;
+	@FXML
+	Button btn_updateProfile ;
 
 
 	public UserConnectRemote UCR() throws NamingException {
@@ -52,5 +55,16 @@ public class LoginController implements Initializable {
                 stage.setScene(scene);
                 stage.show();
     }
+    
+    @FXML
+    public void update(ActionEvent ae) throws IOException{
+        Parent page4 = FXMLLoader.load(getClass().getResource("/gui/Fx/UpdateUserFx.fxml"));
+                Scene scene = new Scene(page4);
+                Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+    }
+    
+    
 
 }

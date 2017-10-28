@@ -22,21 +22,37 @@ public class Member extends User implements Serializable {
 		super();
 	}
 
+
+
 	public String getAddress() {
-		return this.address;
+		return address;
 	}
+
+
 
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
+
+
 	public int getNumPhone() {
-		return this.numPhone;
+		return numPhone;
 	}
+
+
 
 	public void setNumPhone(int numPhone) {
 		this.numPhone = numPhone;
 	}
+
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
 
 	public Member(int idUser, String firstName, String lastName, String userName, String password, String email,
 			String address, int numPhone) {

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="589.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.UpdateUserController">
+	<children>
+		<AnchorPane layoutX="-4.0" layoutY="-1.0" minHeight="0.0" minWidth="0.0" prefHeight="592.0" prefWidth="813.0" style="-fx-background-color: #15598F;" stylesheets="@style.css">
+			<children>
+				<Pane layoutX="-18.0" layoutY="32.0" opacity="0.4" prefHeight="545.0" prefWidth="826.0" style="-fx-background-color: #020308;" />
+				<GridPane layoutX="32.0" layoutY="34.0" prefHeight="534.0" prefWidth="702.0">
+					<columnConstraints>
+						<ColumnConstraints hgrow="SOMETIMES" maxWidth="316.0" minWidth="0.0" prefWidth="180.33331298828125" />
+						<ColumnConstraints hgrow="SOMETIMES" maxWidth="373.0" minWidth="10.0" prefWidth="196.66668701171875" />
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+					</rowConstraints>
+					<children>
+						<TextField fx:id="lastName" prefHeight="35.0" prefWidth="228.0" promptText="Last name" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+						<TextField fx:id="userName" prefHeight="35.0" prefWidth="228.0" promptText="Username" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+						<TextField fx:id="email" prefHeight="35.0" prefWidth="228.0" promptText="E-mail" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+						<PasswordField fx:id="password" prefHeight="35.0" prefWidth="228.0" promptText="Password" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+						<TextField fx:id="firstName" layoutX="189.0" layoutY="63.0" prefHeight="35.0" prefWidth="228.0" promptText="First name" stylesheets="@style.css" GridPane.columnIndex="1" />
+						<Button fx:id="btn_update" mnemonicParsing="false" onAction="#updateAction" prefHeight="36.0" prefWidth="109.0" stylesheets="@../utils/style.css" text="Update" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+						<Text fill="WHITE" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" wrappingWidth="124.890625">
+							<font>
+								<Font size="22.0" />
+							</font>
+						</Text>
+						<Text fill="WHITE" layoutX="10.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="124.890625" GridPane.rowIndex="4">
+							<font>
+								<Font size="22.0" />
+							</font>
+						</Text>
+						<Text fill="WHITE" layoutX="10.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" wrappingWidth="124.890625" GridPane.rowIndex="1">
+							<font>
+								<Font size="22.0" />
+							</font>
+						</Text>
+						<Text fill="WHITE" layoutX="10.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail" wrappingWidth="124.890625" GridPane.rowIndex="3">
+							<font>
+								<Font size="22.0" />
+							</font>
+						</Text>
+						<Text fill="WHITE" layoutX="10.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="124.890625" GridPane.rowIndex="2">
+							<font>
+								<Font size="22.0" />
+							</font>
+						</Text>
+						<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" wrappingWidth="178.890625" GridPane.rowIndex="5">
+							<font>
+								<Font size="22.0" />
+							</font>
+						</Text>
+						<Text fx:id="associationNameLab" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Association Name" wrappingWidth="178.890625" GridPane.rowIndex="10">
+							<font>
+								<Font size="22.0" />
+							</font>
+						</Text>
+						<TextField fx:id="address" prefHeight="35.0" prefWidth="228.0" promptText="Address" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+						<TextField fx:id="numPhone" prefHeight="35.0" prefWidth="228.0" promptText="Phone" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+						<Text fx:id="specialtuLab" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Specialty" wrappingWidth="178.890625" GridPane.rowIndex="7">
+							<font>
+								<Font size="22.0" />
+							</font>
+						</Text>
+						<Text fx:id="officeAddressLab" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Office Address" wrappingWidth="178.890625" GridPane.rowIndex="8">
+							<font>
+								<Font size="22.0" />
+							</font>
+						</Text>
+						<Text fx:id="activityLab" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Activity" wrappingWidth="178.890625" GridPane.rowIndex="9">
+							<font>
+								<Font size="22.0" />
+							</font>
+						</Text>
+						<Text fx:id="agencyLab" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Agency" wrappingWidth="178.890625" GridPane.rowIndex="11">
+							<font>
+								<Font size="22.0" />
+							</font>
+						</Text>
+						<Text fx:id="phone2111" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="phone" wrappingWidth="178.890625" GridPane.rowIndex="6">
+							<font>
+								<Font size="22.0" />
+							</font>
+						</Text>
+						<TextField fx:id="officeAddress" prefHeight="35.0" prefWidth="228.0" promptText="address" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+						<TextField fx:id="activity" prefHeight="35.0" prefWidth="228.0" promptText="activity" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+						<TextField fx:id="associationName" prefHeight="35.0" prefWidth="228.0" promptText="Association name" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+						<TextField fx:id="agency" prefHeight="35.0" prefWidth="228.0" promptText="agency" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+						<ChoiceBox fx:id="specialty" prefWidth="150.0" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+					</children>
+				</GridPane>
+			</children>
+		</AnchorPane>
+	</children>
+</AnchorPane>

@@ -32,5 +32,15 @@ public class InsuranceAgent extends Partner implements Serializable {
 		super(idUser, firstName, lastName, userName, password, email, address, numPhone, subscriptionFees, state);
 		this.agency = agency;
 	}
+	public InsuranceAgent(String firstName, String lastName, String userName, String password, String email,
+			String address, int numPhone, String agency) {
+		super(firstName, lastName, userName, password, email, address, numPhone);
+		this.agency = agency;
+	}
+	public InsuranceAgent(int idUser, String firstName, String lastName, String userName, String password, String email,
+			String address, int numPhone, String agency) {
+		super(idUser, firstName, lastName, userName, password, email, address, numPhone);
+		this.agency = agency;
+	}
    
 }
