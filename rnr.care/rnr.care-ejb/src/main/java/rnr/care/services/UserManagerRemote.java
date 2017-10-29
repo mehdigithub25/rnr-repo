@@ -52,5 +52,7 @@ public interface UserManagerRemote {
 	@WebMethod(operationName="findbylogin")
 	@WebResult
 	User findbylogin(@WebParam(name ="UserName")String username,@WebParam(name ="Password") String password);
+	
+	public List<Member> findAllVolunteer() ;
 
 }

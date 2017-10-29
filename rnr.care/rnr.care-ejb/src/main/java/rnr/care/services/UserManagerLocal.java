@@ -28,5 +28,7 @@ public interface UserManagerLocal {
 	List<User> findAllMember(String preudo);
 	
 	User findbylogin(String username, String password);
+	
+	public List<Member> findAllVolunteer() ;
 
 }

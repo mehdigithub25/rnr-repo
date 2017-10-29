@@ -43,7 +43,7 @@
 						<TextField fx:id="email" prefHeight="35.0" prefWidth="228.0" promptText="E-mail" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 						<PasswordField fx:id="password" prefHeight="35.0" prefWidth="228.0" promptText="Password" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 						<TextField fx:id="firstName" layoutX="189.0" layoutY="63.0" prefHeight="35.0" prefWidth="228.0" promptText="First name" stylesheets="@style.css" GridPane.columnIndex="1" />
-						<Button fx:id="btn_update" mnemonicParsing="false" onAction="#updateAction" prefHeight="36.0" prefWidth="109.0" stylesheets="@../utils/style.css" text="Update" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+						<Button fx:id="btn_update" mnemonicParsing="false" onAction="#updateAction" prefHeight="36.0" prefWidth="109.0" stylesheets="@../utils/style.css" text="Update" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="12" />
 						<Text fill="WHITE" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" wrappingWidth="124.890625">
 							<font>
 								<Font size="22.0" />
@@ -111,6 +111,7 @@
 						<TextField fx:id="associationName" prefHeight="35.0" prefWidth="228.0" promptText="Association name" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="10" />
 						<TextField fx:id="agency" prefHeight="35.0" prefWidth="228.0" promptText="agency" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="11" />
 						<ChoiceBox fx:id="specialty" prefWidth="150.0" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Button fx:id="btn_back" mnemonicParsing="false" onAction="#backAction" text="&lt; back" GridPane.rowIndex="12" />
 					</children>
 				</GridPane>
 			</children>

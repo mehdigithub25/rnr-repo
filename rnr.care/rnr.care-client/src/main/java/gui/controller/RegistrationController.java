@@ -20,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -92,6 +93,9 @@ public class RegistrationController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		specialty.setItems(FXCollections.observableArrayList("Dog", "cat", "sheep", "bird", "horse", "pets",
+				"animals of campaign"));
+
 		membership.setItems(
 				FXCollections.observableArrayList("member", "vet", "trainer", "insurance agent", "association agent"));
 		// membership.setValue("member");
@@ -178,59 +182,61 @@ public class RegistrationController implements Initializable {
 
 	@FXML
 	public void RegisterAction(ActionEvent ae) throws SQLException, IOException, NamingException {
+		if (entryControl()) {
+			Context context = new InitialContext();
+			String jndi = "rnr.care-ear/rnr.care-ejb/UserManager!rnr.care.services.UserManagerRemote";
+			UserManagerRemote userManagementRemote = (UserManagerRemote) context.lookup(jndi);
 
-		Context context = new InitialContext();
-		String jndi = "rnr.care-ear/rnr.care-ejb/UserManager!rnr.care.services.UserManagerRemote";
-		UserManagerRemote userManagementRemote = (UserManagerRemote) context.lookup(jndi);
+			int phone = Integer.parseInt(numPhone.getText());
 
-		int phone = Integer.parseInt(numPhone.getText());
+			String membershipValue = membership.getValue();
 
-		String membershipValue = membership.getValue();
+			System.out.println("  " + membershipValue);
 
-		System.out.println("  " + membershipValue);
+			Member member = new Member(firstName.getText(), lastName.getText(), userName.getText(), password.getText(),
+					email.getText(), address.getText(), phone);
 
-		Member member = new Member(firstName.getText(), lastName.getText(), userName.getText(), password.getText(),
-				email.getText(), address.getText(), phone);
+			Professional pro = new Professional(firstName.getText(), lastName.getText(), userName.getText(),
+					password.getText(), email.getText(), address.getText(), phone, specialty.getValue(),
+					officeAddress.getText(), membershipValue);
 
-		Professional pro = new Professional(firstName.getText(), lastName.getText(), userName.getText(),
-				password.getText(), email.getText(), address.getText(), phone, specialty.getValue(),
-				officeAddress.getText(), membershipValue);
+			AssociationAgent aa = new AssociationAgent(firstName.getText(), lastName.getText(), userName.getText(),
+					password.getText(), email.getText(), address.getText(), phone, activity.getText(),
+					associationName.getText());
 
-		AssociationAgent aa = new AssociationAgent(firstName.getText(), lastName.getText(), userName.getText(),
-				password.getText(), email.getText(), address.getText(), phone, activity.getText(),
-				associationName.getText());
+			InsuranceAgent ia = new InsuranceAgent(firstName.getText(), lastName.getText(), userName.getText(),
+					password.getText(), email.getText(), address.getText(), phone, agency.getText());
 
-		InsuranceAgent ia = new InsuranceAgent(firstName.getText(), lastName.getText(), userName.getText(),
-				password.getText(), email.getText(), address.getText(), phone, agency.getText());
+			if (membershipValue.equals("member")) {
 
-		if (membershipValue.equals("member")) {
+				userManagementRemote.addUser(member);
 
-			userManagementRemote.addUser(member);
+			} else if (membershipValue.equals("vet") || membershipValue.equals("trainer")) {
 
-		} else if (membershipValue.equals("vet") || membershipValue.equals("trainer")) {
+				userManagementRemote.addUser(pro);
 
-			userManagementRemote.addUser(pro);
+			} else if (membershipValue.equals("insurance agent")) {
 
-		} else if (membershipValue.equals("insurance agent")) {
+				userManagementRemote.addUser(ia);
 
-			userManagementRemote.addUser(ia);
+			} else if (membershipValue.equals("association agent")) {
 
-		} else if (membershipValue.equals("association agent")) {
+				userManagementRemote.addUser(aa);
 
-			userManagementRemote.addUser(aa);
+			}
 
+			Parent page1 = FXMLLoader.load(getClass().getResource("/gui/Fx/SuccessfulRegistration.fxml"));
+			Scene scene = new Scene(page1);
+			Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
+			stage.setScene(scene);
+			stage.show();
 		}
-
-		Parent page1 = FXMLLoader.load(getClass().getResource("/gui/Fx/SuccessfulRegistration.fxml"));
-		Scene scene = new Scene(page1);
-		Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
-		stage.setScene(scene);
-		stage.show();
-
 	}
 
 	@FXML
 	public void LoginAction(ActionEvent ae) throws SQLException, IOException, NamingException {
+if (entryControl1()) {
+	
 
 		Context context = new InitialContext();
 		String jndi = "rnr.care-ear/rnr.care-ejb/UserManager!rnr.care.services.UserManagerRemote";
@@ -255,7 +261,96 @@ public class RegistrationController implements Initializable {
 		stage.setScene(scene);
 		stage.show();
 		// }
+}
+	}
+	
+	private boolean entryControl1() {
 
+		
+		if( ("".equals(authUser.getText())) || ("".equals(authPsswd.getText())) ) {
+			
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setTitle("warning!");
+			alert.setHeaderText(null);
+			alert.setContentText("Please fill all the fields, Thanks");
+			alert.showAndWait();
+			
+			
+			return false ;
+			
+		}else 
+			return true ;
+	
 	}
 
+	private boolean entryControl() {
+	
+			if (membership.getValue().equals("member") && ("".equals(firstName.getText()) || ("".equals(lastName.getText()))
+				|| ("".equals(userName.getText())) || ("".equals(email.getText())) || ("".equals(password.getText()))
+				|| ("".equals(address.getText())) || ("".equals(numPhone.getText())))) {
+
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setTitle("warning!");
+			alert.setHeaderText(null);
+			alert.setContentText("Please fill all the fields, Thanks");
+			alert.showAndWait();
+
+			return false;
+		} else if ((membership.getValue().equals("vet") || membership.getValue().equals("trainer"))
+				&& ("".equals(firstName.getText()) || ("".equals(lastName.getText())) || ("".equals(userName.getText()))
+						|| ("".equals(email.getText())) || ("".equals(password.getText()))
+						|| ("".equals(address.getText())) || ("".equals(numPhone.getText()))
+						|| ("".equals(specialty.getValue())) || ("".equals(officeAddress.getText())))) {
+
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setTitle("warning!");
+			alert.setHeaderText(null);
+			alert.setContentText("Please fill all the fields, Thanks");
+			alert.showAndWait();
+
+			return false;
+		} else if (membership.getValue().equals("insurance agent") && ("".equals(firstName.getText())
+				|| ("".equals(lastName.getText())) || ("".equals(userName.getText())) || ("".equals(email.getText()))
+				|| ("".equals(password.getText())) || ("".equals(address.getText())) || ("".equals(numPhone.getText()))
+				|| ("".equals(agency.getText())))) {
+
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setTitle("warning!");
+			alert.setHeaderText(null);
+			alert.setContentText("Please fill all the fields, Thanks");
+			alert.showAndWait();
+
+			return false;
+		}
+
+		else if (membership.getValue().equals("association agent") && ("".equals(firstName.getText())
+				|| ("".equals(lastName.getText())) || ("".equals(userName.getText())) || ("".equals(email.getText()))
+				|| ("".equals(password.getText())) || ("".equals(address.getText())) || ("".equals(numPhone.getText()))
+				|| ("".equals(activity.getText())) || ("".equals(associationName.getText())))) {
+
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setTitle("warning!");
+			alert.setHeaderText(null);
+			alert.setContentText("Please fill all the fields, Thanks");
+			alert.showAndWait();
+
+			return false;
+		}
+
+		else {
+			try {
+				// int x = Integer.parseInt(numPhone.getText());
+				return true;
+
+			} catch (NumberFormatException e) {
+				Alert alert = new Alert(Alert.AlertType.ERROR);
+				alert.setTitle("Erreur!");
+				alert.setHeaderText(null);
+				alert.setContentText("Please enter an integer in the phone field, Thanks ");
+				alert.showAndWait();
+				return false;
+			}
+		}
+
+	}
 }

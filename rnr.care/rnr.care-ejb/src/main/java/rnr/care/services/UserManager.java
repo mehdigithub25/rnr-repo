@@ -129,6 +129,14 @@ public class UserManager implements UserManagerRemote, UserManagerLocal {
 		return (User) query.getSingleResult();
 	}
 	
+	@Override
+	public List<Member> findAllVolunteer() {
+		Query query = entityManager.createQuery("select e from Member e where e.volunteer=:l ");
+		query.setParameter("l", true);
+		
+		return query.getResultList();
+	}
+	
 	
 	
 	
