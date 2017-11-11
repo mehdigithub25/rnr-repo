@@ -18,15 +18,17 @@ public interface UserManagerLocal {
 	void deleteUser(User user);
 
 	User findUserById(int id);
-	
+
 	User findUserByPseudo(String pseudo);
 
 	List<User> findAllUsers();
-	
+
 	public Member findMemberByPseudo(String pseudo);
 
 	List<User> findAllMember(String preudo);
-	
+
 	User findbylogin(String username, String password);
+
+	void deleteUserById(User user);
 
 }

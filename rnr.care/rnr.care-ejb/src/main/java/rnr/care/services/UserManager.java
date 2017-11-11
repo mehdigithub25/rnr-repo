@@ -45,12 +45,17 @@ public class UserManager implements UserManagerRemote, UserManagerLocal {
 		entityManager.merge(user);
 	}
 
-	@WebMethod
-	@WebResult
-	@Override
-	public void deleteUserById(int id) {
-		entityManager.remove(findUserById(id));
-	}
+	/*
+	 * @WebMethod
+	 * 
+	 * @WebResult
+	 * 
+	 * @Override public boolean deleteUserById(int id) { User a =
+	 * entityManager.find(User.class, id); if (a != null) { entityManager.remove(a);
+	 * return true; } else { return false; }
+	 * 
+	 * }
+	 */
 
 	@WebMethod
 	@WebResult
@@ -125,14 +130,26 @@ public class UserManager implements UserManagerRemote, UserManagerLocal {
 	public User findbylogin(String userName, String password) {
 		Query query = entityManager.createQuery("select e from User e where e.userName=:l and e.password=:p");
 		query.setParameter("l", userName).setParameter("p", password);
-		
+
 		return (User) query.getSingleResult();
 	}
-	
-	
-	
-	
 
-	    
+	@Override
+	public void deleteUserById(User user) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<Member> findAllVolunteer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteUserById(int id) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
