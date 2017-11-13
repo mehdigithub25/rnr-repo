@@ -12,6 +12,6 @@
             <Font size="42.0" />
          </font>
       </Label>
-      <Button fx:id="btn_back" layoutX="60.0" layoutY="34.0" mnemonicParsing="false" onAction="#retour" text="Back" />
+      <Button fx:id="btn_back" layoutX="60.0" layoutY="34.0" mnemonicParsing="false" onAction="#backAction" stylesheets="@style.css" text="&lt; Back" />
    </children>
 </AnchorPane>

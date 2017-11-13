@@ -16,7 +16,16 @@ public class Professional extends Partner implements Serializable {
 	
 	private String specialty;
 	private String officeAddress;
+	private String type ;
 	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+
+
 	private static final long serialVersionUID = 1L;
 
 	public Professional() {
@@ -39,11 +48,39 @@ public class Professional extends Partner implements Serializable {
 
 
 	public Professional(String firstName, String lastName, String userName, String password, String email,
+			String address, int numPhone, String specialty, String officeAddress, String type) {
+		super(firstName, lastName, userName, password, email, address, numPhone);
+		this.specialty = specialty;
+		this.officeAddress = officeAddress;
+		this.type = type;
+	}
+	public Professional(String firstName, String lastName, String userName, String password, String email,
 			String address, int numPhone, Float subscriptionFees, Boolean state, String specialty,
 			String officeAddress) {
 		super(firstName, lastName, userName, password, email, address, numPhone, subscriptionFees, state);
 		this.specialty = specialty;
 		this.officeAddress = officeAddress;
 	}
+	public Professional(String firstName, String lastName, String userName, String password, String email,
+			String address, int numPhone, String specialty, String officeAddress) {
+		super(firstName, lastName, userName, password, email, address, numPhone);
+		this.specialty = specialty;
+		this.officeAddress = officeAddress;
+	}
+	public Professional(int idUser, String firstName, String lastName, String userName, String password, String email,
+			String address, int numPhone, String specialty, String officeAddress) {
+		super(idUser, firstName, lastName, userName, password, email, address, numPhone);
+		this.specialty = specialty;
+		this.officeAddress = officeAddress;
+	}
+	public Professional(int idUser, String firstName, String lastName, String userName, String password, String email,
+			String address, int numPhone, String specialty, String officeAddress, String type) {
+		super(idUser, firstName, lastName, userName, password, email, address, numPhone);
+		this.specialty = specialty;
+		this.officeAddress = officeAddress;
+		this.type = type;
+	}
+	
+	
    
 }

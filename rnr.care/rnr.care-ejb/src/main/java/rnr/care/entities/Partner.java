@@ -48,6 +48,14 @@ public class Partner extends Member implements Serializable {
 		this.subscriptionFees = subscriptionFees;
 		this.state = state;
 	}
+	public Partner(String firstName, String lastName, String userName, String password, String email, String address,
+			int numPhone) {
+		super(firstName, lastName, userName, password, email, address, numPhone);
+	}
+	public Partner(int idUser, String firstName, String lastName, String userName, String password, String email,
+			String address, int numPhone) {
+		super(idUser, firstName, lastName, userName, password, email, address, numPhone);
+	}
 
    
 }

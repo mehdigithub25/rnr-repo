@@ -49,6 +49,8 @@ public interface UserManagerRemote {
 	@WebResult
 	public Member findMemberByPseudo(@WebParam(name = "UserName") String pseudo);
 
+	public List<Member> findAllVolunteer();
+
 	@WebMethod(operationName = "findAllMember")
 	@WebResult
 	List<User> findAllMember(@WebParam(name = "UserName") String preudo);
@@ -56,7 +58,5 @@ public interface UserManagerRemote {
 	@WebMethod(operationName = "findbylogin")
 	@WebResult
 	User findbylogin(@WebParam(name = "UserName") String username, @WebParam(name = "Password") String password);
-
-	public List<Member> findAllVolunteer();
 
 }
