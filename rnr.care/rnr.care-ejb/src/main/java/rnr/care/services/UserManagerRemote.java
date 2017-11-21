@@ -13,9 +13,11 @@ import rnr.care.entities.*;
 @Remote
 public interface UserManagerRemote {
 	
-	@WebMethod(operationName="addUser1")
-    @WebResult()
-	void addUser(@WebParam(name ="user") User user);
+	@WebMethod(operationName="addUser1" )
+    
+//	@WebMethod(exclude=true)
+	@WebResult()
+	void addUser( User user);
 
 	@WebMethod(operationName="updateUser1")
 	@WebResult
@@ -25,17 +27,17 @@ public interface UserManagerRemote {
 	@WebResult
 	void deleteUserById(@WebParam(name = "IdUser") int id);
 
-	@WebMethod(operationName="deleteUser1")
-	@WebResult
-	void deleteUser(@WebParam(name ="user")User user);
+	//@WebMethod(operationName="deleteUser1")
+	//@WebResult
+	//void deleteUser(@WebParam(name ="user")User user);
 
 	@WebMethod(operationName="findUserById1")
 	@WebResult
 	User findUserById(@WebParam(name ="IdUser")int id);
 	
-	@WebMethod(operationName="findUserByPseudo1")
-	@WebResult
-	User findUserByPseudo(@WebParam(name = "UserName") String pseudo);
+	//@WebMethod(operationName="findUserByPseudo1")
+	//@WebResult
+	//User findUserByPseudo(@WebParam(name = "UserName") String pseudo);
 
 	@WebMethod(operationName="findAllUsers1")
 	@WebResult(name="listOfUser")
@@ -53,6 +55,20 @@ public interface UserManagerRemote {
 	@WebResult
 	User findbylogin(@WebParam(name ="UserName")String username,@WebParam(name ="Password") String password);
 	
+	@WebMethod(operationName="findAllVolunteer")
+	@WebResult
 	public List<Member> findAllVolunteer() ;
+	
+	@WebMethod(operationName = "getUserConnected")
+	@WebResult()
+	public User getUserConnected();
+
+	@WebMethod(operationName = "logIn")
+	@WebResult()
+	public void logIn(@WebParam(name = "user") User usr);
+
+	@WebMethod(operationName = "logOut")
+	@WebResult()
+	public void logOut();
 
 }

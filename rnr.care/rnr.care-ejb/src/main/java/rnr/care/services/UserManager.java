@@ -1,5 +1,7 @@
 package rnr.care.services;
 
+import rnr.care.entities.User;
+
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -10,6 +12,7 @@ import javax.jws.WebService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.xml.ws.WebServiceProvider;
 
 import rnr.care.entities.Member;
 import rnr.care.entities.User;
@@ -19,7 +22,7 @@ import rnr.care.entities.User;
  */
 @Stateless
 @LocalBean
-@WebService(name = "rnrPortype", portName = "rnrPort", serviceName = "UserService", targetNamespace = "http://rnranimal.tn", endpointInterface = "rnr.care.services.UserManagerRemote")
+@WebService(name = "rnrPortype", portName = "rnrPort", serviceName = "UserManagerService", targetNamespace = "http://rnranimal.tn", endpointInterface = "rnr.care.services.UserManagerRemote")
 public class UserManager implements UserManagerRemote, UserManagerLocal {
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -30,8 +33,9 @@ public class UserManager implements UserManagerRemote, UserManagerLocal {
 	public UserManager() {
 	}
 
-	@WebMethod
-	@WebResult()
+	@WebMethod()
+@WebResult()
+  //  @WebMethod(exclude=true)
 	@Override
 	public void addUser(User user) {
 		entityManager.persist(user);
@@ -52,12 +56,10 @@ public class UserManager implements UserManagerRemote, UserManagerLocal {
 		entityManager.remove(findUserById(id));
 	}
 
-	@WebMethod
-	@WebResult
-	@Override
-	public void deleteUser(User user) {
-		entityManager.remove(user);
-	}
+
+//	public void deleteUser(User user) {
+//		entityManager.remove(user);
+//	}
 
 	@WebMethod
 	@WebResult
@@ -75,21 +77,21 @@ public class UserManager implements UserManagerRemote, UserManagerLocal {
 		return query.getResultList();
 	}
 
-	@WebMethod
-	@WebResult
-	@Override
-	public User findUserByPseudo(String pseudo) {
+	//@WebMethod
+//	@WebResult
+	//@Override
+	//public User findUserByPseudo(String pseudo) {
 
-		String jpql = "SELECT u FROM User  WHERE u.userName like '" + pseudo + "'";
-		Query query = entityManager.createQuery(jpql);
+	//	String jpql = "SELECT u FROM User  WHERE u.userName like '" + pseudo + "'";
+	//	Query query = entityManager.createQuery(jpql);
 
-		return (User) query.getSingleResult();
+		//return (User) query.getSingleResult();
 		// return (User) query.getResultList().get(0);
 
 		// Query q = entityManager.createQuery();
 		// q.setParameter("x", pseudo);
 		// return (User) q.getResultList().get(0);
-	}
+//	}
 	// ***************************//
 	// JPAQuery query = new JPAQuery(entityManager);
 	// User user = query.from(user)
@@ -106,8 +108,9 @@ public class UserManager implements UserManagerRemote, UserManagerLocal {
 	@Override
 	public Member findMemberByPseudo(String pseudo) {
 
-		String jpql = "SELECT u FROM u  WHERE u.userName like '" + pseudo + "'";
+		String jpql = "SELECT u FROM User u where u.userName=:l";
 		Query query = entityManager.createQuery(jpql);
+		query.setParameter("l", pseudo);
 
 		return (Member) query.getSingleResult();
 	}
@@ -116,11 +119,14 @@ public class UserManager implements UserManagerRemote, UserManagerLocal {
 	@WebResult
 	@Override
 	public List<User> findAllMember(String preudo) {
-		String jpql = "SELECT u FROM User u where '" + preudo + "'";
+		String jpql = "SELECT u FROM User u where u.userName=:l";
+		
 		Query query = entityManager.createQuery(jpql);
+		query.setParameter("l", preudo);
 		return query.getResultList();
 	}
-
+	@WebMethod
+	@WebResult
 	@Override
 	public User findbylogin(String userName, String password) {
 		Query query = entityManager.createQuery("select e from User e where e.userName=:l and e.password=:p");
@@ -128,13 +134,47 @@ public class UserManager implements UserManagerRemote, UserManagerLocal {
 		
 		return (User) query.getSingleResult();
 	}
-	
+	@WebMethod
+	@WebResult
 	@Override
 	public List<Member> findAllVolunteer() {
 		Query query = entityManager.createQuery("select e from Member e where e.volunteer=:l ");
 		query.setParameter("l", true);
 		
 		return query.getResultList();
+	}
+	
+	private static User usr;
+
+
+
+	public UserManager(User usr) {
+		super();
+		this.usr = usr;
+	}
+
+	/**
+	 * Default constructor.
+	 */
+	@WebMethod
+	@WebResult()
+	@Override
+	public User getUserConnected() {
+		return usr;
+	}
+	@WebMethod
+	@WebResult()
+	@Override
+	public void logIn(User usr) {
+		UserManager.usr = usr;
+
+	}
+	@WebMethod
+	@WebResult()
+	@Override
+	public void logOut() {
+		UserManager.usr = null;
+
 	}
 	
 	

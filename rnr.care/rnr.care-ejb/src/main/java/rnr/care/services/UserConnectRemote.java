@@ -1,16 +1,26 @@
 package rnr.care.services;
 
 import javax.ejb.Remote;
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebResult;
+import javax.jws.WebService;
 
 import rnr.care.entities.User;
 
+@WebService
 @Remote
 public interface UserConnectRemote {
-	
-	public  User getUserConnected() ;
+	@WebMethod(operationName = "getUserConnected")
+	@WebResult()
+	public User getUserConnected();
 
-	public  void logIn(User usr) ;
+	@WebMethod(operationName = "logIn")
+	@WebResult()
+	public void logIn(@WebParam(name = "user") User usr);
 
-	public  void logOut() ;
+	@WebMethod(operationName = "logOut")
+	@WebResult()
+	public void logOut();
 
 }
