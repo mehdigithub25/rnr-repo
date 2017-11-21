@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.lang.Boolean;
 import java.lang.Float;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import rnr.care.entities.Member;
 
 /**
@@ -12,6 +16,8 @@ import rnr.care.entities.Member;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@XmlRootElement(name="Partner")
+@XmlType(propOrder = {"subscriptionFees","state"})
 public class Partner extends Member implements Serializable {
 
 	
@@ -25,14 +31,14 @@ public class Partner extends Member implements Serializable {
 	public Float getSubscriptionFees() {
 		return this.subscriptionFees;
 	}
-
+	@XmlElement(name="subscriptionFees")
 	public void setSubscriptionFees(Float SubscriptionFees) {
 		this.subscriptionFees = SubscriptionFees;
 	}   
 	public Boolean getState() {
 		return this.state;
 	}
-
+	@XmlElement(name="state")
 	public void setState(Boolean State) {
 		this.state = State;
 	}

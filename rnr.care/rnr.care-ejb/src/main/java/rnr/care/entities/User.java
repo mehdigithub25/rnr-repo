@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * Entity implementation class for Entity: User
@@ -18,6 +21,8 @@ import javax.persistence.InheritanceType;
 /////// **********////////
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@XmlRootElement(name="user")
+@XmlType(propOrder = {"idUser","firstName","lastName","userName","password","email"})
 public class User implements Serializable {
 
 	// @TableGenerator(name = "USER_GEN", table = "ID_GEN", pkColumnName =
@@ -59,7 +64,7 @@ public class User implements Serializable {
 	public int getIdUser() {
 		return this.idUser;
 	}
-
+@XmlElement(name="idUser")
 	public void setIdUser(int IdUser) {
 		this.idUser = IdUser;
 	}
@@ -67,7 +72,7 @@ public class User implements Serializable {
 	public String getFirstName() {
 		return this.firstName;
 	}
-
+	@XmlElement(name="firstName")
 	public void setFirstName(String FirstName) {
 		this.firstName = FirstName;
 	}
@@ -75,7 +80,7 @@ public class User implements Serializable {
 	public String getLastName() {
 		return this.lastName;
 	}
-
+	@XmlElement(name="lastName")
 	public void setLastName(String LastName) {
 		this.lastName = LastName;
 	}
@@ -83,7 +88,7 @@ public class User implements Serializable {
 	public String getUserName() {
 		return this.userName;
 	}
-
+	@XmlElement(name="userName")
 	public void setUserName(String UserName) {
 		this.userName = UserName;
 	}
@@ -91,7 +96,7 @@ public class User implements Serializable {
 	public String getPassword() {
 		return this.password;
 	}
-
+	@XmlElement(name="password")
 	public void setPassword(String Password) {
 		this.password = Password;
 	}
@@ -99,7 +104,7 @@ public class User implements Serializable {
 	public String getEmail() {
 		return this.email;
 	}
-
+	@XmlElement(name="email")
 	public void setEmail(String Email) {
 		this.email = Email;
 	}

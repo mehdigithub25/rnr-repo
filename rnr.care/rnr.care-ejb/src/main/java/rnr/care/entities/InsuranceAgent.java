@@ -3,6 +3,10 @@ package rnr.care.entities;
 import java.io.Serializable;
 import java.lang.String;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import rnr.care.entities.Partner;
 
 /**
@@ -10,7 +14,8 @@ import rnr.care.entities.Partner;
  *
  */
 @Entity
-
+@XmlRootElement(name="InsuranceAgent")
+@XmlType(propOrder = {"agency"})
 public class InsuranceAgent extends Partner implements Serializable {
 
 	
@@ -23,7 +28,7 @@ public class InsuranceAgent extends Partner implements Serializable {
 	public String getAgency() {
 		return this.agency;
 	}
-
+	@XmlElement(name="agency")
 	public void setAgency(String agency) {
 		this.agency = agency;
 	}
