@@ -7,25 +7,39 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="589.0" prefWidth="1045.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.LoginController">
-   <children>
-      <Label fx:id="welcomeLabel" layoutX="20.0" layoutY="17.0" prefHeight="61.0" prefWidth="392.0" text="Label">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Button fx:id="btn_back" layoutX="921.0" layoutY="30.0" mnemonicParsing="false" onAction="#backAction" text="Logout" />
-      <Button fx:id="btn_updateProfile" layoutX="735.0" layoutY="31.0" mnemonicParsing="false" onAction="#update" text="update profile" />
-      <Button fx:id="btn_volunteering" layoutX="521.0" layoutY="31.0" mnemonicParsing="false" onAction="#testVolunteerAction" text="volunteering test" />
-      <Label fx:id="volunteerLab" layoutX="279.0" layoutY="39.0" prefHeight="17.0" prefWidth="111.0" text="you are a volunteer" textFill="#10e110" />
-      <TableView fx:id="tableVolunteer" layoutX="220.0" layoutY="123.0" prefHeight="373.0" prefWidth="791.0">
-        <columns>
-          <TableColumn fx:id="colFirstName" prefWidth="130.0" text="First name" />
-          <TableColumn fx:id="colLastName" minWidth="0.0" prefWidth="127.33331298828125" text="Last name" />
-            <TableColumn fx:id="colPhone" minWidth="0.0" prefWidth="95.66668701171875" text="phone" />
-            <TableColumn fx:id="colEmail" minWidth="0.0" prefWidth="174.0" text="email" />
-            <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="258.0" text="Address" />
-        </columns>
-      </TableView>
-   </children>
+<AnchorPane prefHeight="589.0" prefWidth="1045.0"
+	stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.141"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.LoginController">
+	<children>
+		<Label fx:id="welcomeLabel" layoutX="20.0" layoutY="17.0"
+			prefHeight="61.0" prefWidth="392.0" text="Label">
+			<font>
+				<Font size="14.0" />
+			</font>
+		</Label>
+		<Button fx:id="btn_back" layoutX="921.0" layoutY="30.0"
+			mnemonicParsing="false" onAction="#backAction" text="Logout" />
+		<Button fx:id="btn_updateProfile" layoutX="735.0" layoutY="31.0"
+			mnemonicParsing="false" onAction="#update" text="update profile" />
+		<Button fx:id="btn_volunteering" layoutX="521.0" layoutY="31.0"
+			mnemonicParsing="false" onAction="#testVolunteerAction" text="volunteering test" />
+		<Label fx:id="volunteerLab" layoutX="279.0" layoutY="39.0"
+			prefHeight="17.0" prefWidth="111.0" text="you are a volunteer"
+			textFill="#10e110" />
+		<TableView fx:id="tableVolunteer" layoutX="220.0" layoutY="123.0"
+			prefHeight="373.0" prefWidth="791.0">
+			<columns>
+				<TableColumn fx:id="colFirstName" prefWidth="130.0"
+					text="First name" />
+				<TableColumn fx:id="colLastName" minWidth="0.0"
+					prefWidth="127.33331298828125" text="Last name" />
+				<TableColumn fx:id="colPhone" minWidth="0.0"
+					prefWidth="95.66668701171875" text="phone" />
+				<TableColumn fx:id="colEmail" minWidth="0.0" prefWidth="174.0"
+					text="email" />
+				<TableColumn fx:id="colAddress" minWidth="0.0"
+					prefWidth="258.0" text="Address" />
+			</columns>
+		</TableView>
+	</children>
 </AnchorPane>

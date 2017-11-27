@@ -3,6 +3,10 @@ package rnr.care.entities;
 import java.io.Serializable;
 import java.lang.String;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import rnr.care.entities.Partner;
 
 /**
@@ -10,7 +14,8 @@ import rnr.care.entities.Partner;
  *
  */
 @Entity
-
+@XmlRootElement(name="Professional")
+@XmlType(propOrder = {"specialty","officeAddress","type"})
 public class Professional extends Partner implements Serializable {
 
 	
@@ -21,6 +26,7 @@ public class Professional extends Partner implements Serializable {
 	public String getType() {
 		return type;
 	}
+	@XmlElement(name="type")
 	public void setType(String type) {
 		this.type = type;
 	}
@@ -34,14 +40,14 @@ public class Professional extends Partner implements Serializable {
 	public String getSpecialty() {
 		return this.specialty;
 	}
-
+	@XmlElement(name="specialty")
 	public void setSpecialty(String specialty) {
 		this.specialty = specialty;
 	}   
 	public String getOfficeAddress() {
 		return this.officeAddress;
 	}
-
+	@XmlElement(name="officeAddress")
 	public void setOfficeAddress(String officeAddress) {
 		this.officeAddress = officeAddress;
 	}   

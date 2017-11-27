@@ -3,6 +3,10 @@ package rnr.care.entities;
 import java.io.Serializable;
 import java.lang.String;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import rnr.care.entities.Partner;
 
 /**
@@ -10,7 +14,8 @@ import rnr.care.entities.Partner;
  *
  */
 @Entity
-
+@XmlRootElement(name="user")
+@XmlType(propOrder = {"activity","associationName"})
 public class AssociationAgent extends Partner implements Serializable {
 
 	
@@ -24,14 +29,14 @@ public class AssociationAgent extends Partner implements Serializable {
 	public String getActivity() {
 		return this.activity;
 	}
-
+	@XmlElement(name="activity")
 	public void setActivity(String Activity) {
 		this.activity = Activity;
 	}   
 	public String getAssociationName() {
 		return this.associationName;
 	}
-
+	@XmlElement(name="associationName")
 	public void setAssociationName(String AssociationName) {
 		this.associationName = AssociationName;
 	}

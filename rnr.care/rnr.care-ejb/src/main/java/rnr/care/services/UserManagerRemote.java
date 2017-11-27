@@ -15,14 +15,25 @@ import rnr.care.entities.User;
 @Remote
 public interface UserManagerRemote {
 
+	
+	
+
+
 	@WebMethod(operationName = "addUser1")
 	@WebResult()
 
 	void addUser(@WebParam(name = "user") User user);
 
+
 	@WebMethod(operationName = "updateUser1")
 	@WebResult
 	void updateUser(@WebParam(name = "user") User user);
+
+	//@WebMethod(operationName="deleteUser1")
+	//@WebResult
+	//void deleteUser(@WebParam(name ="user")User user);
+
+
 
 	/*
 	 * @WebMethod(operationName = "deleteUserById1")
@@ -33,9 +44,16 @@ public interface UserManagerRemote {
 	 * deleteUser(@WebParam(name ="user")User user);
 	 */
 
-	@WebMethod(operationName = "findUserById1")
+	@WebMethod(operationName="findUserById1")
 	@WebResult
-	User findUserById(@WebParam(name = "IdUser") int id);
+	User findUserById(@WebParam(name ="IdUser")int id);
+	
+	//@WebMethod(operationName="findUserByPseudo1")
+	//@WebResult
+	//User findUserByPseudo(@WebParam(name = "UserName") String pseudo);
+
+
+	
 
 	// @WebMethod(operationName="findUserByPseudo1")
 	// @WebResult
@@ -47,9 +65,29 @@ public interface UserManagerRemote {
 
 	@WebMethod(operationName = "findMemberByPseudo1")
 	@WebResult
+
 	public Member findMemberByPseudo(@WebParam(name = "UserName") String pseudo);
 
-	public List<Member> findAllVolunteer();
+	
+	
+	@WebMethod(operationName="findAllVolunteer")
+	@WebResult
+	public List<Member> findAllVolunteer() ;
+	
+	@WebMethod(operationName = "getUserConnected")
+	@WebResult()
+	public User getUserConnected();
+
+	@WebMethod(operationName = "logIn")
+	@WebResult()
+	public void logIn(@WebParam(name = "user") User usr);
+
+	@WebMethod(operationName = "logOut")
+	@WebResult()
+	public void logOut();
+
+
+	
 
 	@WebMethod(operationName = "findAllMember")
 	@WebResult

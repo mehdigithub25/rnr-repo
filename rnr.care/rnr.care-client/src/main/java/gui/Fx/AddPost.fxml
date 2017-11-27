@@ -11,15 +11,24 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="642.0" prefWidth="629.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.postManagement.AddPostController">
+<AnchorPane prefHeight="642.0" prefWidth="629.0"
+	xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="gui.postManagement.AddPostController">
 	<children>
-		<ImageView fx:id="imgBackG" fitHeight="642.0" fitWidth="629.0" pickOnBounds="true" preserveRatio="true" />
+		<ImageView fx:id="imgBackG" fitHeight="642.0" fitWidth="629.0"
+			pickOnBounds="true" preserveRatio="true" />
 		<Pane layoutX="19.0" layoutY="31.0" prefHeight="157.0" prefWidth="592.0">
 			<children>
-				<JFXButton fx:id="ajouterPost" buttonType="RAISED" layoutX="504.0" layoutY="118.0" onAction="#AddPAction" prefHeight="25.0" prefWidth="49.0" style="-fx-background-color: #2f9d3e;" text="Post" textFill="WHITE" />
-				<JFXTextArea fx:id="statuPost" layoutX="9.0" layoutY="49.0" prefHeight="94.0" prefWidth="416.0" promptText="Ecrivez votre statut" style="-fx-background-color: #FFFFFF;" />
+				<JFXButton fx:id="ajouterPost" buttonType="RAISED"
+					layoutX="504.0" layoutY="118.0" onAction="#AddPAction" prefHeight="25.0"
+					prefWidth="49.0" style="-fx-background-color: #2f9d3e;" text="Post"
+					textFill="WHITE" />
+				<JFXTextArea fx:id="statuPost" layoutX="9.0" layoutY="49.0"
+					prefHeight="94.0" prefWidth="416.0" promptText="Ecrivez votre statut"
+					style="-fx-background-color: #FFFFFF;" />
 				<TextField fx:id="titlePost" layoutX="355.0" layoutY="14.0" />
-				<Label layoutX="296.0" layoutY="14.0" prefHeight="17.0" prefWidth="49.0" text="Title">
+				<Label layoutX="296.0" layoutY="14.0" prefHeight="17.0"
+					prefWidth="49.0" text="Title">
 					<font>
 						<Font size="16.0" />
 					</font>
@@ -29,10 +38,14 @@
 						<Font size="16.0" />
 					</font>
 				</Label>
-				<ChoiceBox fx:id="categoryPost" layoutX="59.0" layoutY="14.0" prefWidth="150.0" />
+				<ChoiceBox fx:id="categoryPost" layoutX="59.0" layoutY="14.0"
+					prefWidth="150.0" />
 			</children>
 		</Pane>
-		<ListView fx:id="lstPost" layoutX="20.0" layoutY="188.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="585.0" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+		<ListView fx:id="lstPost" layoutX="20.0" layoutY="188.0"
+			maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+			minWidth="-Infinity" prefHeight="430.0" prefWidth="585.0" />
+		<ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true"
+			preserveRatio="true" />
 	</children>
 </AnchorPane>

@@ -15,11 +15,16 @@ public interface UserManagerLocal {
 
 	void deleteUserById(int id);
 
-	void deleteUser(User user);
+	//void deleteUser(User user);
 
 	User findUserById(int id);
 
+
 	User findUserByPseudo(String pseudo);
+
+	
+	//User findUserByPseudo(String pseudo);
+
 
 	List<User> findAllUsers();
 
@@ -30,6 +35,13 @@ public interface UserManagerLocal {
 	User findbylogin(String username, String password);
 	
 	public List<Member> findAllVolunteer() ;
+	
+	
+	public  User getUserConnected() ;
+
+	public  void logIn(User usr) ;
+
+	public  void logOut() ;
 
 	void deleteUserById(User user);
 

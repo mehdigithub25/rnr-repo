@@ -6,6 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * Entity implementation class for Entity: Member
@@ -13,6 +16,9 @@ import javax.persistence.InheritanceType;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@XmlRootElement(name="Member")
+@XmlType(propOrder = {"address","numPhone","volunteer"})
+
 public class Member extends User implements Serializable {
 
 	private String address;
@@ -23,7 +29,7 @@ public class Member extends User implements Serializable {
 	public boolean isVolunteer() {
 		return volunteer;
 	}
-
+	@XmlElement(name="volunteer")
 	public void setVolunteer(boolean volunteer) {
 		this.volunteer = volunteer;
 	}
@@ -37,7 +43,7 @@ public class Member extends User implements Serializable {
 	public String getAddress() {
 		return address;
 	}
-
+	@XmlElement(name="address")
 	public void setAddress(String address) {
 		this.address = address;
 	}
@@ -45,7 +51,7 @@ public class Member extends User implements Serializable {
 	public int getNumPhone() {
 		return numPhone;
 	}
-
+	@XmlElement(name="numPhone")
 	public void setNumPhone(int numPhone) {
 		this.numPhone = numPhone;
 	}
