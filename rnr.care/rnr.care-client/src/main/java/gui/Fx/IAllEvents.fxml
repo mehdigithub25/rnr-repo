@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="698.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.DesplayEventController">
+	<children>
+      <ImageView fx:id="imagevi" fitHeight="698.0" fitWidth="934.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../Desktop/35465915064_0767cf4616_o.jpg" />
+         </image>
+      </ImageView>
+		<Pane blendMode="DARKEN" layoutX="40.0" layoutY="14.0" prefHeight="684.0" prefWidth="892.0">
+			<children>
+				<Label fx:id="interfaceLabel" layoutX="409.0" layoutY="103.0" prefHeight="35.0" prefWidth="176.0" text="Event List" textFill="#0f1010">
+					<font>
+						<Font name="System Bold Italic" size="24.0" />
+					</font>
+               <effect>
+                  <Lighting diffuseConstant="1.58" specularConstant="1.28" specularExponent="22.79" surfaceScale="3.24">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#84ffeb" />
+                     </light>
+                  </Lighting>
+               </effect>
+				</Label>
+				<TextField fx:id="title1" blendMode="DARKEN" layoutX="28.0" layoutY="174.0" prefHeight="30.0" prefWidth="149.0" promptText="event title">
+               <effect>
+                  <Lighting diffuseConstant="1.58" specularConstant="1.23" specularExponent="22.79" surfaceScale="3.36">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#84ffeb" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></TextField>
+				<TextField fx:id="loc1" blendMode="DARKEN" layoutX="28.0" layoutY="222.0" prefHeight="30.0" prefWidth="149.0" promptText="location">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.53" specularConstant="1.25" specularExponent="22.33" surfaceScale="3.13">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#84ffeb" />
+                     </light>
+                  </Lighting>
+               </effect></TextField>
+				<DatePicker fx:id="date1" blendMode="DARKEN" layoutX="28.0" layoutY="273.0" prefHeight="30.0" prefWidth="149.0" promptText="date">
+               <effect>
+                  <Lighting diffuseConstant="1.56" specularConstant="1.25" specularExponent="22.33" surfaceScale="3.59">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#84ffeb" />
+                     </light>
+                  </Lighting>
+               </effect></DatePicker>
+				<Button fx:id="update" blendMode="DARKEN" layoutX="28.0" layoutY="470.0" mnemonicParsing="false" onAction="#UpdateEvent" text="update" textFill="#0f1010">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.58" specularConstant="1.25" specularExponent="22.33" surfaceScale="3.13">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#84ffeb" />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+				<TableView fx:id="table" layoutX="191.0" layoutY="150.0" onSort="#ShowEvent" prefHeight="337.0" prefWidth="611.0">
+					<columns>
+						<TableColumn fx:id="eventtitle" prefWidth="92.0" text="Event title" />
+						<TableColumn fx:id="description" prefWidth="118.0" text="Description" />
+						<TableColumn fx:id="eventlocation" prefWidth="107.0" text="Event location" />
+						<TableColumn fx:id="eventdate" minWidth="3.0" prefWidth="81.0" text="Event date" />
+						<TableColumn fx:id="eventtype" prefWidth="82.0" text="Event type" />
+						<TableColumn fx:id="number" prefWidth="130.0" text="Participant number" />
+					</columns>
+               <effect>
+                  <Lighting diffuseConstant="1.56" specularConstant="1.21" specularExponent="22.79" surfaceScale="3.24">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#9feee1" />
+                     </light>
+                  </Lighting>
+               </effect>
+				</TableView>
+				<Label fx:id="idd" layoutX="12.0" layoutY="12.0" textFill="#f2f0f0" />
+				<Button fx:id="delete" layoutX="112.0" layoutY="470.0" mnemonicParsing="false" onAction="#DeleteEvent" text="Delete" textFill="#0f1010">
+               <effect>
+                  <Lighting diffuseConstant="1.58" specularConstant="1.23" specularExponent="22.79" surfaceScale="3.13">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#84ffeb" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+				<TextField fx:id="number1" blendMode="DARKEN" layoutX="28.0" layoutY="430.0" prefHeight="30.0" prefWidth="149.0" promptText="number">
+               <effect>
+                  <Lighting diffuseConstant="1.56" specularConstant="1.25" specularExponent="22.32" surfaceScale="3.24">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#84ffeb" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <Label fx:id="idu" layoutX="25.0" layoutY="62.0" />
+            <CheckBox fx:id="vip" layoutX="28.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleVipBox" text="vip" textFill="#0f1010">
+               <effect>
+                  <Lighting diffuseConstant="1.56" specularConstant="1.23" specularExponent="22.33" surfaceScale="3.13">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#84ffeb" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></CheckBox>
+            <CheckBox fx:id="vol" layoutX="121.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleVolBox" text="vol" textFill="#0f1010">
+               <effect>
+                  <Lighting diffuseConstant="1.56" specularConstant="1.28" specularExponent="22.33" surfaceScale="3.24">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#84ffeb" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></CheckBox>
+            <TextArea fx:id="description1" layoutX="28.0" layoutY="318.0" prefHeight="69.0" prefWidth="149.0" promptText="description">
+               <effect>
+                  <Lighting diffuseConstant="1.53" specularConstant="1.25" specularExponent="22.33" surfaceScale="3.24">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#84ffeb" />
+                     </light>
+                  </Lighting>
+               </effect>
+            </TextArea>
+            <TableView fx:id="table_par" layoutX="191.0" layoutY="545.0" prefHeight="118.0" prefWidth="423.0">
+               <effect>
+                  <Lighting diffuseConstant="1.58" specularConstant="1.23" specularExponent="22.79" surfaceScale="3.36">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#9feee1" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <columns>
+                  <TableColumn fx:id="datecolumn" prefWidth="146.0" text="Participation date" />
+                  <TableColumn fx:id="numbercolumn" prefWidth="175.0" text="Participants number" />
+                  <TableColumn fx:id="activatecolumn" prefWidth="135.0" text="Activate" />
+               </columns>
+            </TableView>
+            <Button fx:id="show" blendMode="DARKEN" layoutX="347.0" layoutY="500.0" mnemonicParsing="false" onAction="#ShowParticipants" text="Show Participants" textFill="#0f1010">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.58" specularConstant="1.25" specularExponent="22.33" surfaceScale="3.13">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#84ffeb" />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Button>
+            <Button fx:id="back" blendMode="DARKEN" layoutX="12.0" layoutY="604.0" mnemonicParsing="false" onAction="#backEvent" text="Back" textFill="#0f1010">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.58" specularConstant="1.25" specularExponent="22.33" surfaceScale="3.13">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#84ffeb" />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Button>
+			</children>
+		</Pane>
+	</children>
+</AnchorPane>

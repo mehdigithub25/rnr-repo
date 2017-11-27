@@ -4,6 +4,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import rnr.care.entities.AssociationAgent;
+import rnr.care.entities.Member;
 import rnr.care.services.UserConnectRemote;
 import rnr.care.services.UserManagerRemote;
 
@@ -35,10 +37,9 @@ public class TestUser {
 		
 		
 		
-		// float subfees=50 ;
-		// Member member = new Member("ali",
-		// "bougerra","aloulou","aloulou","ali.bougera@gmail.com","29 av de la
-		// liberté",25645987);
+		float subfees=50 ;
+		//Member member = new Member("ali",
+		//"bougerra","ali","ali","ali.bougera@gmail.com","29 av de laliberté",25645987);
 		// Professional professional = new Professional("ali",
 		// "bougerra","aloulou","aloulou","ali.bougera@gmail.com","29 av de la
 		// liberté",25645987,subfees,true,"dog","fil houma");
@@ -49,10 +50,11 @@ public class TestUser {
 
 		// Member member = new Member("aaa", "aaa", "aaa", "aaa", " aaa", "aaa", 1254);
 
-		// AssociationAgent ag = new AssociationAgent("vvvv", "vvvv", "vvvv", "vvvv",
-		// "vvvv", "vvvv", 879, subfees, true,
-		// "dog", "aaaa");
-		// userManagementRemote.addUser(ag);
+		AssociationAgent ag = new AssociationAgent("yasmineAzaiezAssociation", "yasmineAzaiezAssociation", "yasmineAzaiezAssociation", "yasmineAzaiezAssociation",
+		 "yasmineAzaiezAssociation", "yasmineAzaiezAssociation", 879, subfees, true,
+		 "dog", "sos animal");
+		// userManagementRemote.addUser(member);
+		 userManagementRemote.addUser(ag);
 		// User user= userManagementRemote.findbylogin("aaa", "aaa");
 		// Member member= userManagementRemote.findbylogin("aa", "aa");
 

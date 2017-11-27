@@ -120,7 +120,8 @@ public class UserManager implements UserManagerRemote, UserManagerLocal {
 		Query query = entityManager.createQuery(jpql);
 		return query.getResultList();
 	}
-
+	@WebMethod
+	@WebResult
 	@Override
 	public User findbylogin(String userName, String password) {
 		Query query = entityManager.createQuery("select e from User e where e.userName=:l and e.password=:p");

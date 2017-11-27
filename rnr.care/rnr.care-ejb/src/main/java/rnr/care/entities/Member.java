@@ -5,16 +5,20 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Entity implementation class for Entity: Member
  *
  */
 @Entity
+@XmlRootElement
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Member extends User implements Serializable {
-
+	@XmlElement
 	private String address;
+	@XmlElement
 	private int numPhone;
 	private static final long serialVersionUID = 1L;
 

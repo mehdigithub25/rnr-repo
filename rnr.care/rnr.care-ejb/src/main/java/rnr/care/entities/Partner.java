@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.lang.Boolean;
 import java.lang.Float;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import rnr.care.entities.Member;
 
 /**
@@ -11,11 +14,13 @@ import rnr.care.entities.Member;
  *
  */
 @Entity
+@XmlRootElement
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Partner extends Member implements Serializable {
 
-	
+	@XmlElement
 	private Float subscriptionFees;
+	@XmlElement
 	private Boolean state;
 	private static final long serialVersionUID = 1L;
 

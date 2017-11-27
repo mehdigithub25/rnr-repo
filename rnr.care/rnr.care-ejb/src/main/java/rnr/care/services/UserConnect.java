@@ -2,6 +2,7 @@ package rnr.care.services;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.jws.WebService;
 
 import rnr.care.entities.User;
 
@@ -10,6 +11,8 @@ import rnr.care.entities.User;
  */
 @Stateless
 @LocalBean
+@WebService(name = "rnrPortype", portName = "rnrPort", serviceName = "UserConnectService", targetNamespace = "http://rnranimal.tn", endpointInterface = "rnr.care.services.UserConnectRemote")
+
 public class UserConnect implements UserConnectRemote, UserConnectLocal {
 	private static User usr;
 

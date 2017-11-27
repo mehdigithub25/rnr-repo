@@ -2,16 +2,69 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="589.0" prefWidth="805.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.LoginController">
+<AnchorPane prefHeight="470.0" prefWidth="860.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.LoginController">
    <children>
+      <ImageView fx:id="imagevi" fitHeight="589.0" fitWidth="860.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../Desktop/a03ae9b70b28e9dd7e3b6480b1b7ee356989f3525815d123bc5d8bda97c249d0.gif" />
+         </image>
+      </ImageView>
       <Label fx:id="welcomeLabel" layoutX="204.0" layoutY="83.0" prefHeight="61.0" prefWidth="392.0" text="Label">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btn_back" layoutX="38.0" layoutY="29.0" mnemonicParsing="false" onAction="#retour" text="Back" />
+      <Button fx:id="btn_back" layoutX="764.0" layoutY="28.0" mnemonicParsing="false" onAction="#retour" text="Sign Out">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="2.0" specularExponent="18.14" surfaceScale="5.22">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="#dddde8" />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Button fx:id="btn_add" layoutX="7.0" layoutY="238.0" mnemonicParsing="false" onAction="#add" prefHeight="32.0" prefWidth="226.0" text="Add Event">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="2.0" specularExponent="18.14" surfaceScale="5.34">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="#dddde8" />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Button fx:id="btn_show" layoutX="7.0" layoutY="300.0" mnemonicParsing="false" onAction="#show" prefHeight="32.0" prefWidth="226.0" text="All Events Association">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="2.0" specularExponent="18.14" surfaceScale="5.45">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="#dddde8" />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Button fx:id="btn_show1" layoutX="7.0" layoutY="356.0" mnemonicParsing="false" onAction="#search" prefHeight="32.0" prefWidth="226.0" text="All Events user">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="2.0" specularExponent="18.14" surfaceScale="5.34">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="#dddde8" />
+               </light>
+            </Lighting>
+         </effect></Button>
    </children>
 </AnchorPane>

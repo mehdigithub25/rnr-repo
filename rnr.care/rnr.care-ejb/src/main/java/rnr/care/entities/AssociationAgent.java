@@ -3,6 +3,11 @@ package rnr.care.entities;
 import java.io.Serializable;
 import java.lang.String;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import rnr.care.entities.Partner;
 
 /**
@@ -10,11 +15,13 @@ import rnr.care.entities.Partner;
  *
  */
 @Entity
-
+@XmlAccessorType(XmlAccessType.NONE)
+@XmlRootElement
 public class AssociationAgent extends Partner implements Serializable {
 
-	
+	@XmlElement
 	private String activity;
+	@XmlElement
 	private String associationName;
 	private static final long serialVersionUID = 1L;
 

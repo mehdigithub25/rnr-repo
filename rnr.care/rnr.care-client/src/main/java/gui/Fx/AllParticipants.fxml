@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="521.0" prefWidth="688.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ParticipationController">
+   <children>
+      <ImageView fx:id="image" fitHeight="532.0" fitWidth="688.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../Desktop/35465915064_0767cf4616_o.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutY="-2.0" prefHeight="532.0" prefWidth="688.0">
+         <children>
+            <TableView fx:id="table_par" layoutX="14.0" layoutY="123.0" onSort="#ShowParticipants" prefHeight="389.0" prefWidth="460.0">
+               <effect>
+                  <Lighting diffuseConstant="1.58" specularConstant="1.23" specularExponent="22.79" surfaceScale="3.36">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#9feee1" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <columns>
+                  <TableColumn fx:id="datecolumn" prefWidth="130.0" text="Participation date" />
+                  <TableColumn fx:id="numbercolumn" prefWidth="167.0" text="Participants number" />
+                  <TableColumn fx:id="activatecolumn" prefWidth="159.0" text="Activate" />
+               </columns>
+            </TableView>
+            <Label fx:id="label" layoutX="237.0" layoutY="88.0" prefHeight="35.0" prefWidth="215.0" text="Participants list" textFill="#0f1010">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.58" specularConstant="1.23" specularExponent="22.33" surfaceScale="3.36">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#84ffeb" />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Label>
+         </children></Pane>
+   </children>
+</AnchorPane>

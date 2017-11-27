@@ -1,14 +1,22 @@
 package rnr.care.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Entity implementation class for Entity: User
@@ -17,6 +25,8 @@ import javax.persistence.InheritanceType;
 
 /////// **********////////
 @Entity
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.NONE)
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User implements Serializable {
 
@@ -31,18 +41,50 @@ public class User implements Serializable {
 	// public abstract class User implements Serializable {
 
 	// @Id
+	@XmlElement
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idUser;
 	// private int idUser;
 	/////////////// ************/////////
+	@XmlElement
 	private String firstName;
+	@XmlElement
 	private String lastName;
+	
 	@Column(unique = true)
+	@XmlElement
 	private String userName;
+	@XmlElement
 	private String password;
+	@XmlElement
 	private String email;
 	private static final long serialVersionUID = 1L;
 
+////farah
+	
+	@OneToMany(mappedBy = "AssociationAgent", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+	private List<Event> AssociationAgentEvent;
+
+	public List<Event> getAssociationAgentEvent() {
+		return AssociationAgentEvent;
+	}
+
+	public void setAssociationAgentEvent(List<Event> associationAgentEvent) {
+		AssociationAgentEvent = associationAgentEvent;
+	}
+
+	@OneToMany(mappedBy = "user")
+	private List<Participation> participation;
+
+	public List<Participation> getParticipation() {
+		return participation;
+	}
+
+	public void setParticipation(List<Participation> participation) {
+		this.participation = participation;
+	}
+
+	
 	public User() {
 		super();
 	}

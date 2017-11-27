@@ -2,6 +2,8 @@ package rnr.care.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import rnr.care.entities.User;
 
 /**
@@ -9,7 +11,7 @@ import rnr.care.entities.User;
  *
  */
 @Entity
-
+@XmlRootElement
 public class Moderator extends User implements Serializable {
 
 	

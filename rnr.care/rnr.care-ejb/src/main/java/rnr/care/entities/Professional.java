@@ -3,6 +3,9 @@ package rnr.care.entities;
 import java.io.Serializable;
 import java.lang.String;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import rnr.care.entities.Partner;
 
 /**
@@ -10,11 +13,12 @@ import rnr.care.entities.Partner;
  *
  */
 @Entity
-
+@XmlRootElement
 public class Professional extends Partner implements Serializable {
 
-	
+	@XmlElement
 	private String specialty;
+	@XmlElement
 	private String officeAddress;
 	
 	private static final long serialVersionUID = 1L;
