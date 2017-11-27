@@ -13,19 +13,21 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class SuccessFullController {
-	
+
 	@FXML
-	Label success_lab ;
+	Label success_lab;
 	@FXML
-	Button btn_back ;
-	
-    @FXML
-    public void retour(ActionEvent ae) throws IOException{
-        Parent page4 = FXMLLoader.load(getClass().getResource("/gui/Fx/Login.fxml"));
-                Scene scene = new Scene(page4);
-                Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-    }
+	Button btn_back;
+
+	@FXML
+	public void backAction(ActionEvent ae) throws IOException {
+		Parent page4 = FXMLLoader.load(getClass().getResource("/gui/Fx/Login.fxml"));
+		Scene scene = new Scene(page4);
+		Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+	}
+
+
 
 }

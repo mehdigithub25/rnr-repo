@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>tn.esprit.sigma</groupId>
-    <artifactId>rnr.care</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <artifactId>rnr.care-client</artifactId>
-<dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>tn.esprit.sigma</groupId>
+		<artifactId>rnr.care</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>rnr.care-client</artifactId>
+	<dependencies>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -29,7 +30,7 @@
 			<artifactId>rnr.care-ejb</artifactId>
 			<type>ejb</type>
 		</dependency>
-</dependencies>
+	</dependencies>
 
 	<build>
 		<finalName>${project.artifactId}</finalName>
@@ -46,7 +47,8 @@
 						</goals>
 						<configuration>
 							<transformers>
-								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 									<mainClass>org.ug.cs.client.ui.StartApp</mainClass>
 								</transformer>
 							</transformers>

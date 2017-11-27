@@ -4,8 +4,12 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+
 import rnr.care.entities.AssociationAgent;
 import rnr.care.entities.Member;
+
+import rnr.care.entities.User;
+
 import rnr.care.services.UserConnectRemote;
 import rnr.care.services.UserManagerRemote;
 
@@ -19,15 +23,17 @@ public class TestUser {
 		String jndi1 = "rnr.care-ear/rnr.care-ejb/UserConnect!rnr.care.services.UserConnectRemote";
 		UserConnectRemote userConnectRemote = (UserConnectRemote) context.lookup(jndi1);
 
-		// User user= userManagementRemote.findbylogin("member1", "member1");
+		User user = userManagementRemote.findbylogin("member1", "member1");
 
-		// userConnectRemote.logIn(user);
+		userConnectRemote.logIn(user);
 
-	//	userConnectRemote.logOut();
+		// userConnectRemote.logOut();
 
-	//	System.out.println(userConnectRemote.getUserConnected().getFirstName());
+		//System.out.println(userConnectRemote.getUserConnected().getFirstName());
 		
+		System.out.println( user.getClass().toString());
 		
+
 		
 		
 		
@@ -37,9 +43,18 @@ public class TestUser {
 		
 		
 		
-		float subfees=50 ;
+		//float subfees=50 ;
 		//Member member = new Member("ali",
 		//"bougerra","ali","ali","ali.bougera@gmail.com","29 av de laliberté",25645987);
+
+
+		// ***********************************************************************************//
+
+		// float subfees=50 ;
+		// Member member = new Member("ali",
+		// "bougerra","aloulou","aloulou","ali.bougera@gmail.com","29 av de la
+		// liberté",25645987);
+
 		// Professional professional = new Professional("ali",
 		// "bougerra","aloulou","aloulou","ali.bougera@gmail.com","29 av de la
 		// liberté",25645987,subfees,true,"dog","fil houma");
@@ -50,11 +65,11 @@ public class TestUser {
 
 		// Member member = new Member("aaa", "aaa", "aaa", "aaa", " aaa", "aaa", 1254);
 
-		AssociationAgent ag = new AssociationAgent("yasmineAzaiezAssociation", "yasmineAzaiezAssociation", "yasmineAzaiezAssociation", "yasmineAzaiezAssociation",
-		 "yasmineAzaiezAssociation", "yasmineAzaiezAssociation", 879, subfees, true,
-		 "dog", "sos animal");
+		//AssociationAgent ag = new AssociationAgent("yasmineAzaiezAssociation", "yasmineAzaiezAssociation", "yasmineAzaiezAssociation", "yasmineAzaiezAssociation",
+		 //"yasmineAzaiezAssociation", "yasmineAzaiezAssociation", 879, subfees, true,
+		 //"dog", "sos animal");
 		// userManagementRemote.addUser(member);
-		 userManagementRemote.addUser(ag);
+		// userManagementRemote.addUser(ag);
 		// User user= userManagementRemote.findbylogin("aaa", "aaa");
 		// Member member= userManagementRemote.findbylogin("aa", "aa");
 

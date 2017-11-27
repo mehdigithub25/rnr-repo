@@ -7,6 +7,10 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+
+import javax.xml.bind.annotation.XmlType;
+
+
 import rnr.care.entities.Member;
 
 /**
@@ -14,8 +18,10 @@ import rnr.care.entities.Member;
  *
  */
 @Entity
-@XmlRootElement
+
 @Inheritance(strategy = InheritanceType.JOINED)
+@XmlRootElement(name="Partner")
+@XmlType(propOrder = {"subscriptionFees","state"})
 public class Partner extends Member implements Serializable {
 
 	@XmlElement
@@ -30,14 +36,14 @@ public class Partner extends Member implements Serializable {
 	public Float getSubscriptionFees() {
 		return this.subscriptionFees;
 	}
-
+	@XmlElement(name="subscriptionFees")
 	public void setSubscriptionFees(Float SubscriptionFees) {
 		this.subscriptionFees = SubscriptionFees;
 	}   
 	public Boolean getState() {
 		return this.state;
 	}
-
+	@XmlElement(name="state")
 	public void setState(Boolean State) {
 		this.state = State;
 	}
@@ -52,6 +58,14 @@ public class Partner extends Member implements Serializable {
 		super(firstName, lastName, userName, password, email, address, numPhone);
 		this.subscriptionFees = subscriptionFees;
 		this.state = state;
+	}
+	public Partner(String firstName, String lastName, String userName, String password, String email, String address,
+			int numPhone) {
+		super(firstName, lastName, userName, password, email, address, numPhone);
+	}
+	public Partner(int idUser, String firstName, String lastName, String userName, String password, String email,
+			String address, int numPhone) {
+		super(idUser, firstName, lastName, userName, password, email, address, numPhone);
 	}
 
    
