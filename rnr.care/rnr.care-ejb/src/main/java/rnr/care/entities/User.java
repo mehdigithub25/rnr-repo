@@ -64,13 +64,14 @@ public class User implements Serializable {
 
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@XmlElement
 	private int idUser;
 
 	// private int idUser;
 	/////////////// ************/////////
 
 
-	
+	@XmlElement
 	private String firstName;
 	@XmlElement
 	private String lastName;
@@ -133,7 +134,7 @@ public class User implements Serializable {
 	}
 
 
-	@XmlElement(name = "idUser")
+	//@XmlElement(name = "idUser")
 
 
 
@@ -144,7 +145,7 @@ public class User implements Serializable {
 	public String getFirstName() {
 		return this.firstName;
 	}
-	@XmlElement(name="firstName")
+	//@XmlElement(name="firstName")
 	public void setFirstName(String FirstName) {
 		this.firstName = FirstName;
 	}
@@ -152,7 +153,7 @@ public class User implements Serializable {
 	public String getLastName() {
 		return this.lastName;
 	}
-	@XmlElement(name="lastName")
+	//@XmlElement(name="lastName")
 	public void setLastName(String LastName) {
 		this.lastName = LastName;
 	}
@@ -160,7 +161,7 @@ public class User implements Serializable {
 	public String getUserName() {
 		return this.userName;
 	}
-	@XmlElement(name="userName")
+	//@XmlElement(name="userName")
 	public void setUserName(String UserName) {
 		this.userName = UserName;
 	}
@@ -168,7 +169,7 @@ public class User implements Serializable {
 	public String getPassword() {
 		return this.password;
 	}
-	@XmlElement(name="password")
+	//@XmlElement(name="password")
 	public void setPassword(String Password) {
 		this.password = Password;
 	}
@@ -176,7 +177,7 @@ public class User implements Serializable {
 	public String getEmail() {
 		return this.email;
 	}
-	@XmlElement(name="email")
+	//@XmlElement(name="email")
 	public void setEmail(String Email) {
 		this.email = Email;
 	}

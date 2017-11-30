@@ -3,6 +3,7 @@ package rnr.care.services;
 import java.util.Date;
 import java.util.List;
 
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -19,9 +20,11 @@ import rnr.care.entities.User;
 /**
  * Session Bean implementation class ParticipationManagement
  */
+@Stateless
+@LocalBean
 @WebService(name = "rnrPortype", portName = "rnrPort", serviceName = "ParticipationService", targetNamespace = "http://rnranimal.tn", endpointInterface = "rnr.care.services.ParticipationManagementRemote")
 
-@Stateless
+
 public class ParticipationManagement implements ParticipationManagementRemote, ParticipationManagementLocal {
 	@PersistenceContext
 	private EntityManager entityManager;

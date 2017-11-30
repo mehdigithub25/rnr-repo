@@ -28,12 +28,13 @@ public class Member extends User implements Serializable {
 	@XmlElement
 	private int numPhone;
 	@Column( name="volunteer", nullable = true)
+	@XmlElement
 	private boolean volunteer ;
 
 	public boolean isVolunteer() {
 		return volunteer;
 	}
-	@XmlElement(name="volunteer")
+	//@XmlElement(name="volunteer")
 	public void setVolunteer(boolean volunteer) {
 		this.volunteer = volunteer;
 	}
@@ -47,7 +48,7 @@ public class Member extends User implements Serializable {
 	public String getAddress() {
 		return address;
 	}
-	@XmlElement(name="address")
+//	@XmlElement(name="address")
 	public void setAddress(String address) {
 		this.address = address;
 	}
@@ -55,7 +56,7 @@ public class Member extends User implements Serializable {
 	public int getNumPhone() {
 		return numPhone;
 	}
-	@XmlElement(name="numPhone")
+	//@XmlElement(name="numPhone")
 	public void setNumPhone(int numPhone) {
 		this.numPhone = numPhone;
 	}
