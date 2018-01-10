@@ -15,8 +15,6 @@
 	xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1"
 	fx:controller="gui.postManagement.AddPostController">
 	<children>
-		<ImageView fx:id="imgBackG" fitHeight="642.0" fitWidth="629.0"
-			pickOnBounds="true" preserveRatio="true" />
 		<Pane layoutX="19.0" layoutY="31.0" prefHeight="157.0" prefWidth="592.0">
 			<children>
 				<JFXButton fx:id="ajouterPost" buttonType="RAISED"

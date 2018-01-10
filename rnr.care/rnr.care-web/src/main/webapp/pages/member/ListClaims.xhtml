@@ -1,0 +1,116 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="title">list claims</ui:define>
+	<ui:define name="content"> #{identify.user.idUser}
+		<h:form>
+
+			
+				<h:commandButton action="#{claimBean.doShowClaimssList()}"
+			 rendered="#{not claimBean.showClaimsList}" class="awe-btn" value="add new claim" /> 
+				
+			<h:panelGrid border="2" columns="2"
+				rendered="#{claimBean.showClaimsList}">
+
+				<h:outputText value="title" />
+				<h:inputText value="#{claimBean.claim.title}" />
+
+				<h:outputText value="body" />
+				<h:inputText value="#{claimBean.claim.body}" />
+
+				<h:outputText value="Date" />
+
+				<p:calendar value="#{claimBean.claim.date}" mode="popup"
+					pattern="MM/dd/yyyy HH:mm:ss">
+					<f:ajax render="@form" />
+				</p:calendar>
+
+
+
+
+				<h:outputText value="location" />
+				<h:inputText value="#{claimBean.claim.locationClaim}" />
+
+
+				<h:commandButton action="#{claimBean.doSaveOrUpdateClaim()}"
+					value="Add claim" class="awe-btn" />
+					
+
+			</h:panelGrid>
+
+
+		</h:form>
+
+
+		<section class="your-destinations-section-demo">
+			<div class="container">
+				<div class="your-destinations">
+					<div class="your-destionations__top">
+						<div class="title">
+							<h2>Claims list</h2>
+						</div>
+					</div>
+					<h:panelGroup rendered="#{not claimBean.showClaimsList}">
+						<h:dataTable value="#{claimBean.claims}" var="p" >
+							<div class="destination-list__content">
+								<h:column>
+									<div class="destinations-item">
+										<div class="item-media">
+											
+											<div class="item-cat">
+												
+											</div>
+										</div>
+										<div class="item-body">
+											<div class="item-title">
+												<h2>
+													<h:outputText value="#{p.title}" />
+												</h2>
+											</div>
+											<div class="item-description">
+												<h:outputText value="#{p.body}" />
+											</div>
+
+										</div>
+										<div class="item-price-more">
+											<div class="price">
+												<span class="amount"><h:outputText
+														value="#{p.date}" /></span>
+											</div>
+											<a href="#" class="awe-btn">signal</a>
+										</div>
+									</div>
+								</h:column>
+							</div>
+						</h:dataTable>
+					</h:panelGroup>
+				</div>
+			</div>
+		</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</ui:define>
+
+
+</ui:composition>

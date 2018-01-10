@@ -12,29 +12,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
-
-import javax.persistence.OneToMany;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-
-
 import javax.xml.bind.annotation.XmlType;
-
-
 
 /**
  * Entity implementation class for Entity: User
  *
  */
-
 
 @Entity
 
@@ -42,26 +31,20 @@ import javax.xml.bind.annotation.XmlType;
 @Inheritance(strategy = InheritanceType.JOINED)
 @XmlRootElement(name = "user")
 
-
-
-
-
-@XmlType(propOrder = {"idUser","firstName","lastName","userName","password","email"})
+@XmlType(propOrder = { "idUser", "firstName", "lastName", "userName", "password", "email","address" })
 
 public class User implements Serializable {
 
 	@Id
 
 	// @GeneratedValue(strategy = GenerationType.TABLE, generator = "USER_GEN")
-	
+
 	/////////////////////// *******////////////////
 	// @Entity
 	// @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 	// public abstract class User implements Serializable {
 
 	// @Id
-
-
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@XmlElement
@@ -70,12 +53,11 @@ public class User implements Serializable {
 	// private int idUser;
 	/////////////// ************/////////
 
-
 	@XmlElement
 	private String firstName;
 	@XmlElement
 	private String lastName;
-	
+
 	@Column(unique = true)
 	@XmlElement
 	private String userName;
@@ -83,6 +65,30 @@ public class User implements Serializable {
 	private String password;
 	@XmlElement
 	private String email;
+	
+	@XmlElement
+	private String address ;
+
+	public User(String firstName, String lastName, String userName, String password, String email, String address) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName;
+		this.password = password;
+		this.email = email;
+		this.address = address;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	private String region;
+
 	private static final long serialVersionUID = 1L;
 	@XmlTransient
 	@OneToMany(targetEntity = Post.class, mappedBy = "user")
@@ -91,8 +97,8 @@ public class User implements Serializable {
 	@OneToMany(targetEntity = Comment.class, mappedBy = "user")
 	private List<Comment> comments;
 
-////farah
-	
+	//// farah
+
 	@OneToMany(mappedBy = "AssociationAgent", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
 	private List<Event> AssociationAgentEvent;
 
@@ -115,7 +121,6 @@ public class User implements Serializable {
 		this.participation = participation;
 	}
 
-	
 	public User() {
 		super();
 	}
@@ -133,10 +138,7 @@ public class User implements Serializable {
 		return this.idUser;
 	}
 
-
-	//@XmlElement(name = "idUser")
-
-
+	// @XmlElement(name = "idUser")
 
 	public void setIdUser(int IdUser) {
 		this.idUser = IdUser;
@@ -145,7 +147,8 @@ public class User implements Serializable {
 	public String getFirstName() {
 		return this.firstName;
 	}
-	//@XmlElement(name="firstName")
+
+	// @XmlElement(name="firstName")
 	public void setFirstName(String FirstName) {
 		this.firstName = FirstName;
 	}
@@ -153,7 +156,8 @@ public class User implements Serializable {
 	public String getLastName() {
 		return this.lastName;
 	}
-	//@XmlElement(name="lastName")
+
+	// @XmlElement(name="lastName")
 	public void setLastName(String LastName) {
 		this.lastName = LastName;
 	}
@@ -161,7 +165,8 @@ public class User implements Serializable {
 	public String getUserName() {
 		return this.userName;
 	}
-	//@XmlElement(name="userName")
+
+	// @XmlElement(name="userName")
 	public void setUserName(String UserName) {
 		this.userName = UserName;
 	}
@@ -169,7 +174,8 @@ public class User implements Serializable {
 	public String getPassword() {
 		return this.password;
 	}
-	//@XmlElement(name="password")
+
+	// @XmlElement(name="password")
 	public void setPassword(String Password) {
 		this.password = Password;
 	}
@@ -177,7 +183,8 @@ public class User implements Serializable {
 	public String getEmail() {
 		return this.email;
 	}
-	//@XmlElement(name="email")
+
+	// @XmlElement(name="email")
 	public void setEmail(String Email) {
 		this.email = Email;
 	}
@@ -192,21 +199,15 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	/*public List<Post> getPosts() {
-		return Posts;
-	}
-
-	public void setPosts(List<Post> posts) {
-		Posts = posts;
-	}
-
-	public List<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}*/
+	/*
+	 * public List<Post> getPosts() { return Posts; }
+	 * 
+	 * public void setPosts(List<Post> posts) { Posts = posts; }
+	 * 
+	 * public List<Comment> getComments() { return comments; }
+	 * 
+	 * public void setComments(List<Comment> comments) { this.comments = comments; }
+	 */
 
 	public User(int idUser, String firstName, String lastName, String userName, String password, String email,
 			List<Post> posts, List<Comment> comments) {
@@ -219,6 +220,14 @@ public class User implements Serializable {
 		this.email = email;
 		Posts = posts;
 		this.comments = comments;
+	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
 	}
 
 }

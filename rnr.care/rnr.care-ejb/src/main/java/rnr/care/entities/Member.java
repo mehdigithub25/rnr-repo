@@ -30,6 +30,9 @@ public class Member extends User implements Serializable {
 	@Column( name="volunteer", nullable = true)
 	@XmlElement
 	private boolean volunteer ;
+	
+	
+
 
 	public boolean isVolunteer() {
 		return volunteer;
@@ -94,5 +97,6 @@ public class Member extends User implements Serializable {
 		this.numPhone = numPhone;
 		this.volunteer = volunteer;
 	}
+
 
 }

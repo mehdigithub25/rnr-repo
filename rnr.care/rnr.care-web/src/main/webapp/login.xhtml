@@ -1,0 +1,49 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="title">login</ui:define>
+	<ui:define name="content">
+
+
+		<section class="awe-parallax login-page-demo">
+			<div class="awe-overlay"></div>
+			<div class="container">
+				<div class="login-register-page__content">
+					<div class="content-title">
+						<span>sing in</span>
+
+					</div>
+					<h:form>
+						<div class="form-item">
+							<label>user name</label>
+							<h:inputText value="#{identify.user.userName}" />
+						</div>
+						<div class="form-item">
+							<label>Password</label>
+							<h:inputText value="#{identify.user.password}" />
+						</div>
+
+						<div class="form-actions">
+							<h:commandButton action="#{identify.doLogin()}" value="login" />
+						</div>
+					</h:form>
+
+				</div>
+			</div>
+		</section>
+
+
+
+	</ui:define>
+
+
+
+
+
+</ui:composition>

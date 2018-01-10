@@ -58,7 +58,7 @@ public class LoginController implements Initializable {
 	 ImageView imagevi;
 	 
 	public User user;
-
+    @FXML
 	Button btn_updateProfile;
 	@FXML
 	Button btn_volunteering;
@@ -81,10 +81,7 @@ public class LoginController implements Initializable {
 
 
 	public UserConnectRemote UCR() throws NamingException {
-		File file = new
-				File("C:/Users/ASUS/git/rnr-repo/rnr.care/rnr.care-ejb/src/main/java/rnr/care/services/a03ae9b70b28e9dd7e3b6480b1b7ee356989f3525815d123bc5d8bda97c249d0.gif");
-			 Image image = new Image(file.toURI().toString());
-				 imagevi.setImage(image);
+		
 		Context context = new InitialContext();
 		String jndi1 = "rnr.care-ear/rnr.care-ejb/UserConnect!rnr.care.services.UserConnectRemote";
 		UserConnectRemote userConnectRemote = (UserConnectRemote) context.lookup(jndi1);
@@ -121,6 +118,8 @@ public class LoginController implements Initializable {
 			System.out.println(userclass);
 
 			if (userclass.equals("class rnr.care.entities.Member")) {
+				btn_add.setVisible(false);
+				btn_show.setVisible(false);
 				btn_volunteering.setVisible(true);
 				tableVolunteer.setVisible(false);
 
@@ -132,7 +131,8 @@ public class LoginController implements Initializable {
 				}
 
 			} else if (userclass.equals("class rnr.care.entities.AssociationAgent")) {
-
+				btn_add.setVisible(true);
+				btn_show.setVisible(true);
 				tableVolunteer.setVisible(true);
 
 				colFirstName.setCellFactory(TextFieldTableCell.forTableColumn());

@@ -15,25 +15,18 @@ import rnr.care.entities.User;
 @Remote
 public interface UserManagerRemote {
 
-	
-	
-
-
 	@WebMethod(operationName = "addUser1")
 	@WebResult()
 
 	void addUser(@WebParam(name = "user") User user);
 
-
 	@WebMethod(operationName = "updateUser1")
 	@WebResult
 	void updateUser(@WebParam(name = "user") User user);
 
-	//@WebMethod(operationName="deleteUser1")
-	//@WebResult
-	//void deleteUser(@WebParam(name ="user")User user);
-
-
+	// @WebMethod(operationName="deleteUser1")
+	// @WebResult
+	// void deleteUser(@WebParam(name ="user")User user);
 
 	/*
 	 * @WebMethod(operationName = "deleteUserById1")
@@ -44,16 +37,13 @@ public interface UserManagerRemote {
 	 * deleteUser(@WebParam(name ="user")User user);
 	 */
 
-	@WebMethod(operationName="findUserById1")
+	@WebMethod(operationName = "findUserById1")
 	@WebResult
-	User findUserById(@WebParam(name ="IdUser")int id);
-	
-	//@WebMethod(operationName="findUserByPseudo1")
-	//@WebResult
-	//User findUserByPseudo(@WebParam(name = "UserName") String pseudo);
+	User findUserById(@WebParam(name = "IdUser") int id);
 
-
-	
+	// @WebMethod(operationName="findUserByPseudo1")
+	// @WebResult
+	// User findUserByPseudo(@WebParam(name = "UserName") String pseudo);
 
 	// @WebMethod(operationName="findUserByPseudo1")
 	// @WebResult
@@ -68,12 +58,10 @@ public interface UserManagerRemote {
 
 	public Member findMemberByPseudo(@WebParam(name = "UserName") String pseudo);
 
-	
-	
-	@WebMethod(operationName="findAllVolunteer")
+	@WebMethod(operationName = "findAllVolunteer")
 	@WebResult
-	public List<Member> findAllVolunteer() ;
-	
+	public List<Member> findAllVolunteer();
+
 	@WebMethod(operationName = "getUserConnected")
 	@WebResult()
 	public User getUserConnected();
@@ -86,9 +74,6 @@ public interface UserManagerRemote {
 	@WebResult()
 	public void logOut();
 
-
-	
-
 	@WebMethod(operationName = "findAllMember")
 	@WebResult
 	List<User> findAllMember(@WebParam(name = "UserName") String preudo);
@@ -96,5 +81,7 @@ public interface UserManagerRemote {
 	@WebMethod(operationName = "findbylogin")
 	@WebResult
 	User findbylogin(@WebParam(name = "UserName") String username, @WebParam(name = "Password") String password);
+
+	public List<User> findAllMember1();
 
 }

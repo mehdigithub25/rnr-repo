@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:yui="http://code.google.com/p/gmaps4jsf/"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:m="http://code.google.com/p/gmaps4jsf/">
+<head>
+<h:outputScript>src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyC8d6MMmob3GyVfOwFuDcF4ZC9VNk2DFL8- tWRbPPQS4ACM1pq_e-PltxQXeyH20wQuqDaQ_6EM5UeGGVpnIw"
+	type="text/javascript"</h:outputScript>
+
+<title>Insert title here</title>
+</head>
+
+<body>
+
+	<h1>a</h1>
+	<f:view>
+		<h:form id="form">
+			<m:map zoom="16" width="500px" height="500px" address="White house">
+				<m:mapControl name="GLargeMapControl"
+					position="G_ANCHOR_BOTTOM_LEFT" />
+				<m:mapControl name="GMapTypeControl" />
+				<m:htmlInformationWindow htmlText="White house"></m:htmlInformationWindow>
+			</m:map>
+		</h:form>
+	</f:view>
+</body>
+</html>
