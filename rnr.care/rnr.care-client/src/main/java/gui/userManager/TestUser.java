@@ -7,9 +7,10 @@ import javax.naming.NamingException;
 
 import rnr.care.entities.AssociationAgent;
 import rnr.care.entities.Member;
-
+import rnr.care.entities.Testimonial;
 import rnr.care.entities.User;
 import rnr.care.services.ClaimManagerRemote;
+import rnr.care.services.TestimonalServiceRemote;
 import rnr.care.services.UserConnectRemote;
 import rnr.care.services.UserManagerRemote;
 
@@ -26,13 +27,18 @@ public class TestUser {
 		
 		String jndi2 = "rnr.care-ear/rnr.care-ejb/ClaimManager!rnr.care.services.ClaimManagerRemote";
 		ClaimManagerRemote claimManagerRemote = (ClaimManagerRemote) context.lookup(jndi2);
+		
+		String jndi3 = "rnr.care-ear/rnr.care-ejb/TestimonalService!rnr.care.services.TestimonalServiceRemote";
+		TestimonalServiceRemote testimonalServiceRemote = (TestimonalServiceRemote) context.lookup(jndi3);
 
 		
 	//	System.out.println("0000000"+claimManagerRemote.);
 		
-		claimManagerRemote.sendMessage("mehdi.benaissa1@esprit.tn", "macro7mito", "mehdi.benaissa26@gmail.com", "alooo", "test");
+	//	claimManagerRemote.sendMessage("mehdi.benaissa1@esprit.tn", "macro7mito", "mehdi.benaissa26@gmail.com", "alooo", "test");
 		
+		Testimonial tes= new Testimonial("tttt","yyyy");
 		
+		testimonalServiceRemote.addTestimonial(tes);
 		
 
 		//User user = userManagementRemote.findbylogin("member1", "member1");

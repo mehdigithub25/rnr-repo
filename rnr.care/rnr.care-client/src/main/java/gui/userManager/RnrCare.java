@@ -18,7 +18,7 @@ public class RnrCare extends Application {
 
 	public void start(Stage primaryStage) throws IOException {
 		this.stage = primaryStage;
-		parent = FXMLLoader.load(getClass().getResource("/gui/Fx/Login.fxml"));
+		parent = FXMLLoader.load(getClass().getResource("/gui/Fx/Menu.fxml"));
 		Scene scene = new Scene(parent);
 		stage.setScene(scene);
 		stage.show();

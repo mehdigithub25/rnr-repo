@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.Mail">
+   <children>
+      <JFXComboBox fx:id="from_combo" focusColor="#2196f3" layoutX="25.0" layoutY="14.0" unFocusColor="#7ef423" />
+      <JFXTextField fx:id="from_pwd" focusColor="#2196f3" labelFloat="true" layoutX="188.0" layoutY="46.0" prefHeight="25.0" prefWidth="93.0" promptText="pasword" unFocusColor="#7ef423" />
+      <JFXTextField fx:id="to_pwd" focusColor="#2196f3" layoutX="188.0" layoutY="131.0" prefHeight="25.0" prefWidth="93.0" promptText="sendto" unFocusColor="#7ef423" />
+      <JFXComboBox fx:id="subj_combo" focusColor="#2196f3" layoutX="44.0" layoutY="144.0" unFocusColor="#7ef423" />
+      <JFXButton fx:id="send_btn" buttonType="RAISED" layoutX="418.0" layoutY="46.0" onAction="#send" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: #7ef423;" text="Envoyer" />
+      <JFXTextArea fx:id="msg_fild" layoutX="100.0" layoutY="244.0" opacity="0.42" prefHeight="103.0" prefWidth="326.0">
+         <effect>
+            <GaussianBlur />
+         </effect></JFXTextArea>
+      <ComboBox layoutX="6.0" layoutY="59.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

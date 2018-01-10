@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.afficherTestimonal">
+   <children>
+      <Pane fx:id="pane1" layoutY="-15.0" prefHeight="165.0" prefWidth="600.0" style="-fx-background-color: #00BFFF;" />
+      <TableView fx:id="table_test" layoutX="59.0" layoutY="197.0" prefHeight="200.0" prefWidth="226.0">
+         <columns>
+            <TableColumn fx:id="Column_contenuu" prefWidth="75.0" text="Contenu" />
+            <TableColumn fx:id="Column_userr" prefWidth="75.0" text="User" />
+            <TableColumn fx:id="Colum_img" prefWidth="75.0" text="Image" />
+         </columns>
+      </TableView>
+      <ImageView fx:id="imgToShow" fitHeight="150.0" fitWidth="200.0" layoutX="360.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btn_del" layoutX="314.0" layoutY="485.0" mnemonicParsing="false" onAction="#ondelAction" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #00BFFF;" text="Delete" />
+      <Button fx:id="btn_update" layoutX="22.0" layoutY="472.0" mnemonicParsing="false" onAction="#OnupdateAction" text="Update Testimonal" />
+      <ImageView fitHeight="18.0" fitWidth="14.0" layoutX="314.0" layoutY="492.0" pickOnBounds="true" preserveRatio="true" fx:id="x2">
+         <image>
+            <Image url="@../../pics/close_delete-128.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="150.0" layoutX="365.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../pics/other_review_comment__-128.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="43.0" fitWidth="52.0" layoutX="378.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="26.0" fitWidth="54.0" layoutX="507.0" layoutY="486.0" pickOnBounds="true" preserveRatio="true" fx:id="x3">
+         <image>
+            <Image url="@../../pics/facebook_circle_color-128.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="191.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true" fx:id="x1">
+         <image>
+            <Image url="@../../pics/Mail_black-128.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btn_back" layoutX="533.0" layoutY="397.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: throws SQLException, IOException, NamingException;" text="back" />
+      <Button fx:id="btncom" layoutX="404.0" layoutY="487.0" mnemonicParsing="false" onAction="#onComme" style="-fx-background-color: #00BFFF;" text="Comment" />
+      <Button fx:id="btn_mail" layoutX="217.0" layoutY="487.0" mnemonicParsing="false" onAction="#onmailAction" style="-fx-background-color: #00BFFF;" text="sendMail" />
+      <Button fx:id="txt_btn" layoutX="530.0" layoutY="487.0" mnemonicParsing="false" onAction="#bck" style="-fx-background-color: #00BFFF;" text="share " />
+      <TextField fx:id="txt_rechercher" layoutX="433.0" layoutY="206.0" promptText="rechercher" />
+   </children>
+</AnchorPane>
